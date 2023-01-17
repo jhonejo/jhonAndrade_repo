@@ -1,9 +1,9 @@
 import React from 'react';
 import {ActivityIndicator, FlatList, Text, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {styles} from '../theme/appStyles';
-import {paginatedPokemon} from '../hooks/paginatedPokemon';
-import CardPokemon from '../components/CardPokemon/CardPokemon';
+import {styles} from '../../theme/appStyles';
+import {paginatedPokemon} from '../../hooks/paginatedPokemon';
+import CardPokemon from '../../components/CardPokemon/CardPokemon';
 
 export const HomeScreen = () => {
   const {top} = useSafeAreaInsets();
@@ -27,14 +27,9 @@ export const HomeScreen = () => {
           showsVerticalScrollIndicator={false}
           numColumns={2}
           renderItem={({item}) => <CardPokemon pokemon={item} />}
-          //paginated
           onEndReached={loadData}
           onEndReachedThreshold={0.4}
           ListFooterComponent={
-            // <View style={{justifyContent: 'space-between', flexDirection: 'row'}}>
-            //   <Button title="Atras" />
-            //   <Button title="Siguiente" />
-            // </View>
             <ActivityIndicator style={{height: 100}} size={20} color="black" />
           }
         />

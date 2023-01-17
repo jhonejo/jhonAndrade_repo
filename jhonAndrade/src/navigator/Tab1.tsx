@@ -1,10 +1,16 @@
 import {createStackNavigator} from '@react-navigation/stack';
-import HomeScreen from '../screens/HomeScreen';
-import DetailScreen from '../screens/DetailScreen';
+import HomeScreen from '../screens/HomeScreen/HomeScreen';
+import DetailScreen from '../screens/DetailScreen/DetailScreen';
+import {pokemonSimple} from '../interfaces/pokemonInterfaces';
 
-const Stack = createStackNavigator();
+export type stackParams = {
+  HomeScreen: undefined;
+  DetailScreen: {pokemon: pokemonSimple; color: string};
+};
 
-export const Navigator = () => {
+const Stack = createStackNavigator<stackParams>();
+
+export const Tab1 = () => {
   return (
     <Stack.Navigator
       screenOptions={{
